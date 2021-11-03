@@ -6,6 +6,9 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/Task-Timer-App/app/src/main/res/drawable-anydpi/pause.xml" value="0.290625" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Task-Timer-App/app/src/main/res/drawable-anydpi/start.xml" value="0.290625" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Task-Timer-App/app/src/main/res/drawable-anydpi/stop.xml" value="0.290625" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Task-Timer-App/app/src/main/res/drawable/circle.xml" value="0.290625" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Task-Timer-App/app/src/main/res/layout/activity_add_task.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Task-Timer-App/app/src/main/res/layout/activity_summary.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Task-Timer-App/app/src/main/res/layout/activity_timer.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Task-Timer-App/app/src/main/res/layout/activity_timer_home.xml" value="0.2" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Task-Timer-App/app/src/main/res/layout/activity_view_task.xml" value="0.27395833333333336" />

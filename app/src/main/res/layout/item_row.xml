@@ -9,7 +9,7 @@
     android:backgroundTint="#8290E1">
 
     <LinearLayout
-        android:id="@+id/LL2RV"
+        android:id="@+id/LL1RV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#BEFFFFFF"
@@ -60,6 +60,88 @@
             android:textAlignment="textEnd"
             android:textColor="#0C8246"
             android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LL2RV"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#BEFFFFFF"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTaskNameTimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:padding="4dp"
+            android:layout_marginTop="5dp"
+            android:text=" task name"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tvTaskDescriptionTimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:padding="4dp"
+            android:text="Task Description"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <ProgressBar
+            android:id="@+id/PBar"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            style="?android:progressBarStyleHorizontal"
+            android:progress="80"
+            android:layout_gravity="center"
+            android:progressDrawable="@drawable/circle"/>
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </Chronometer>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           android:layout_gravity="center"
+            app:layout_constraintVertical_bias="0.81">
+
+            <Button
+                android:id="@+id/pausebutton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/pause"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/startbutton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/start"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
