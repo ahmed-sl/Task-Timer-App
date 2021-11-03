@@ -30,12 +30,12 @@
 
 
         <Button
-            android:id="@+id/addtask"
+            android:id="@+id/btnSummaryTask"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10dp"
-            android:text="Add task" />
+            android:text="tasks summary" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

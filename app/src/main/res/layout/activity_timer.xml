@@ -8,57 +8,52 @@
     android:background="#C3CAF1"
     tools:context=".Timer">
 
-
-    <Button
-        android:id="@+id/stopbutton"
-        android:layout_width="96dp"
-        android:layout_height="93dp"
-        android:background="@drawable/stop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/pausebutton"
-        android:layout_width="96dp"
-        android:layout_height="93dp"
-        android:background="@drawable/pause"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.907"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/startbutton"
-        android:layout_width="96dp"
-        android:layout_height="93dp"
-        android:background="@drawable/start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/timerview"
+    <Chronometer
+        android:id="@+id/chronometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </Chronometer>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214" />
+        app:layout_constraintVertical_bias="0.71000004">
+
+        <Button
+            android:id="@+id/stopbutton"
+            android:layout_width="96dp"
+            android:layout_height="93dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/stop"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/pausebutton"
+            android:layout_width="96dp"
+            android:layout_height="93dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/pause"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/startbutton"
+            android:layout_width="96dp"
+            android:layout_height="93dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/start"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

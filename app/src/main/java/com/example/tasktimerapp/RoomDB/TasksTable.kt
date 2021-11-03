@@ -5,8 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName ="Timer_table")
-data class EntityTimer(
+@Entity(tableName ="Tasks_table")
+data class TasksTable(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "ID")
@@ -15,10 +15,10 @@ data class EntityTimer(
     @ColumnInfo(name = "TaskName")
     var name: String,
 
-    @ColumnInfo (name = "TaskDiscription")
+    @ColumnInfo (name = "TaskDescription")
      var discrption: String,
 
-   @ColumnInfo(name = "time")
-   val time : Int = 0
+   @ColumnInfo(name = "TaskTime")
+   val time : String
 
 )

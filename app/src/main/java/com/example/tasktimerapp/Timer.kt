@@ -3,67 +3,79 @@ package com.example.tasktimerapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.SystemClock
 import android.view.View
 import android.widget.Button
+import android.widget.Chronometer
 import android.widget.TextView
+import android.widget.Toast
+import com.example.tasktimerapp.RoomDB.TasksDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class Timer : AppCompatActivity() {
-    lateinit var timerview:TextView
+    //our views
+    lateinit var chronometer: Chronometer
     lateinit var startbutton:Button
     lateinit var stopbutton:Button
     lateinit var pausebutton:Button
-    //Declare a variable to hold count down timer's paused status
-    private var isCanceled = false
-    //Declare a variable to hold CountDownTimer remaining time
-    private var timeRemaining: Long = 0
-
+    //our variables
+    private var running = false
+    private var pauseOffset: Long = 0
+    //our database
+    lateinit var tasksDB: TasksDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
-        timerview=findViewById(R.id.timerview)
+        //my views
+        chronometer=findViewById(R.id.chronometer)
         startbutton=findViewById(R.id.startbutton)
         stopbutton=findViewById(R.id.stopbutton)
         pausebutton=findViewById(R.id.pausebutton)
+        //our database
+        tasksDB= TasksDatabase.getInstance(this)
 
+        //get task id in order to insert(update) its time to it
+        var taskId= intent?.getIntExtra("taskID",0)
+        var taskTime=""
 
-        startbutton.setOnClickListener {  }
-        stopbutton.setOnClickListener {  }
-        pausebutton.setOnClickListener {  }
-
-
-
-
-    }
-
-/*
-
-    fun countDownTimer(): CountDownTimer? {
-        isCanceled = false;
-        val millisInFuture: Long = 30000 //30 seconds
-        val countDownInterval: Long = 1000 //1 second
-
-        return object : CountDownTimer(millisInFuture, countDownInterval) {
-            override fun onTick(millisUntilFinished: Long) {
-                if (isCanceled){
-                    cancel()
-
-                }else{
-                    timerview.setText("Time: " + millisUntilFinished / 1000)
-                    //Put count down timer remaining time in a variable
-                    timeRemaining = millisUntilFinished;
+        //chronometer
+        chronometer.setFormat("Time: %s");
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        chronometer.onChronometerTickListener =
+            Chronometer.OnChronometerTickListener { chronometer ->
+                if (SystemClock.elapsedRealtime() - chronometer.base >= 10000) {
+                    chronometer.base = SystemClock.elapsedRealtime()
+                    Toast.makeText(this, "Bing!", Toast.LENGTH_SHORT).show()
                 }
-
             }
-            override fun onFinish() {
-                timerview.setText("Time: -")
 
-            }
-        }.start()
-    }//end countDownTimer()
-*/
+        ////do btn's listener
+        startbutton.setOnClickListener {
+            if (!running){
+            chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
+            chronometer.start();
+            running = true;
+        }}
 
+        stopbutton.setOnClickListener {
+            if (running){
+                chronometer.stop();
+                pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
+                running = false;
+                taskTime=chronometer.text.toString()
+                CoroutineScope(Dispatchers.IO).launch {
+                    tasksDB.getTasksDao().updateTaskTime(taskId!!, taskTime)
+                }
+            }//end if
+        }
 
+        pausebutton.setOnClickListener {
+            chronometer.setBase(SystemClock.elapsedRealtime());
+            pauseOffset = 0;
+        }
+    }//end onCreate()
 
-
-}
+}//end class
