@@ -10,8 +10,9 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="#974A4A"
-        app:srcCompat="@drawable/home1" />
+        android:backgroundTint="#FF914D"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/design" />
 
     <TextView
         android:id="@+id/textView"
@@ -71,6 +72,7 @@
             android:text="save task"
             android:textColor="@color/black"
             android:textSize="20sp" />
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -93,4 +95,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.05"  />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

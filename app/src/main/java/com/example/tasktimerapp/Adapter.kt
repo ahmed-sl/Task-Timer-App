@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Chronometer
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasktimerapp.RoomDB.TasksTable
 import com.example.tasktimerapp.databinding.ItemRowBinding
@@ -34,7 +35,10 @@ class Adapter(val activity:ViewTask, val TaskList:List<TasksTable>): RecyclerVie
 
         holder.bin.apply {
             tvTaskNameRV.text=TaskName
+            checkBox.setOnClickListener{
+                LL1RV.isVisible=false
 
+            }
             FABtimer.setOnClickListener(){
                 LL1RV.visibility=View.GONE
                 LL2RV.visibility=View.VISIBLE

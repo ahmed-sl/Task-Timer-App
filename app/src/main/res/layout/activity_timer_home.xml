@@ -6,14 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".TimerHome">
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="259dp"
         android:backgroundTint="#974A4A"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/home1" />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.885"
+        app:srcCompat="@drawable/home" />
 
     <TextView
         android:id="@+id/tvWelcome"
@@ -22,6 +27,7 @@
         android:text="Get things done with TimerIo"
         android:textSize="30sp"
         android:fontFamily="@font/roboto_medium"
+
         android:textColor="@color/black"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,8 +63,8 @@
             android:layout_marginTop="10dp"
             android:backgroundTint="#7885D1CD"
             android:fontFamily="@font/roboto_medium"
-            android:textColor="@color/black"
             android:text="view tasks"
+            android:textColor="@color/black"
             android:textSize="20sp" />
     </LinearLayout>
 
