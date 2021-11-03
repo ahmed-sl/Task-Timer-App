@@ -18,7 +18,7 @@ class Timer : AppCompatActivity() {
     //our views
     lateinit var chronometer: Chronometer
     lateinit var startbutton:Button
-    lateinit var stopbutton:Button
+    //lateinit var stopbutton:Button
     lateinit var pausebutton:Button
     //our variables
     private var running = false
@@ -32,7 +32,7 @@ class Timer : AppCompatActivity() {
         //my views
         chronometer=findViewById(R.id.chronometer)
         startbutton=findViewById(R.id.startbutton)
-        stopbutton=findViewById(R.id.stopbutton)
+        //stopbutton=findViewById(R.id.stopbutton)
         pausebutton=findViewById(R.id.pausebutton)
         //our database
         tasksDB= TasksDatabase.getInstance(this)
@@ -60,7 +60,8 @@ class Timer : AppCompatActivity() {
             running = true;
         }}
 
-        stopbutton.setOnClickListener {
+
+        pausebutton.setOnClickListener {
             if (running){
                 chronometer.stop();
                 pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
@@ -70,11 +71,6 @@ class Timer : AppCompatActivity() {
                     tasksDB.getTasksDao().updateTaskTime(taskId!!, taskTime)
                 }
             }//end if
-        }
-
-        pausebutton.setOnClickListener {
-            chronometer.setBase(SystemClock.elapsedRealtime());
-            pauseOffset = 0;
         }
     }//end onCreate()
 
