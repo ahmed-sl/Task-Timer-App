@@ -19,6 +19,7 @@ class AddTask : AppCompatActivity() {
     lateinit var nametask:EditText
     lateinit var descriptiontask:EditText
     lateinit var savetask:Button
+    lateinit var back:Button
     //our database
     lateinit var tasksDB: TasksDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,7 @@ class AddTask : AppCompatActivity() {
         nametask=findViewById(R.id.taskname)
         descriptiontask=findViewById(R.id.taskdescription)
         savetask=findViewById(R.id.savetask)
+        back=findViewById(R.id.back)
         //our database
         tasksDB= TasksDatabase.getInstance(this)
         //do btn's listener
@@ -43,6 +45,11 @@ class AddTask : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Please fill all entries!", Toast.LENGTH_SHORT).show()
         }//end savetask Listener
 
+        //back to previous page button
+        back.setOnClickListener {
+            intent = Intent(this, TimerHome::class.java)
+            startActivity(intent)
+        }
 
     }//end onCreate()
 
