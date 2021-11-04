@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.SystemClock
 import android.widget.Button
 import android.widget.Chronometer
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +20,7 @@ import kotlinx.coroutines.withContext
 class ViewTask : AppCompatActivity() {
 
     //our views
+    lateinit var tvWelcome:TextView
     lateinit var recyclerview: RecyclerView
     lateinit var btnSummaryTask:Button
     //our database
@@ -34,6 +36,7 @@ class ViewTask : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_task)
         //our views
+        tvWelcome=findViewById(R.id.tvWelcome)
         recyclerview=findViewById(R.id.RVv)
         btnSummaryTask=findViewById(R.id.btnSummaryTask)
         //our database
@@ -66,20 +69,17 @@ class ViewTask : AppCompatActivity() {
             tasksDB.getTasksDao().updateTaskTime(id, time)
         }
     }//end updateTime()
-
     ////////////////////////Adapter method//////////////////////////
-
     fun Timer(chronometer: Chronometer) {
         chronometer.setFormat("Time: %s")
         chronometer.setBase(SystemClock.elapsedRealtime());
         chronometer.onChronometerTickListener =
             Chronometer.OnChronometerTickListener { chronometer ->
-                if (SystemClock.elapsedRealtime() - chronometer.base >= 10000) {
+                if (SystemClock.elapsedRealtime() - chronometer.base >= 100000000) {
                     chronometer.base = SystemClock.elapsedRealtime()
                 }//end startTimer
             }
     }//end Timer
-
     fun pasuse(chronometer: Chronometer, TaskId:Int):Boolean {
         var ishideLL2RV=false
         if (num==2){

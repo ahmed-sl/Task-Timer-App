@@ -1,22 +1,18 @@
 package com.example.tasktimerapp
 
-import android.content.Intent
-import android.os.SystemClock
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Chronometer
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasktimerapp.RoomDB.TasksTable
 import com.example.tasktimerapp.databinding.ItemRowBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+
 
 class Adapter(val activity:ViewTask, val TaskList:List<TasksTable>): RecyclerView.Adapter<Adapter.ItemBinding>() {
     class ItemBinding (val bin :ItemRowBinding):RecyclerView.ViewHolder(bin.root)
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemBinding {
         return ItemBinding(ItemRowBinding.inflate(LayoutInflater.from(parent.context), parent,false))
@@ -50,6 +46,7 @@ class Adapter(val activity:ViewTask, val TaskList:List<TasksTable>): RecyclerVie
 
             startbutton.setOnClickListener {
                 activity.start(chronometer,TaskName)
+
             }
 
 
@@ -67,6 +64,7 @@ class Adapter(val activity:ViewTask, val TaskList:List<TasksTable>): RecyclerVie
             //go to summary part
             if (activity.isBtnSumarryClick){
                 activity.btnSummaryTask.visibility= View.INVISIBLE
+                activity.tvWelcome.text="Task Summary"
                 if (TaskTime.isNotEmpty()){
                     tvTaskTimeRVD.visibility= View.VISIBLE
                     FABtimer.visibility= View.GONE
@@ -78,6 +76,7 @@ class Adapter(val activity:ViewTask, val TaskList:List<TasksTable>): RecyclerVie
             }else
             {
                 activity.btnSummaryTask.visibility= View.VISIBLE
+                activity.tvWelcome.text="ToDo"
             }//end if
 
         }//end holder
