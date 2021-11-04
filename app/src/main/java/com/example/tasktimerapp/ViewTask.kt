@@ -104,9 +104,9 @@ class ViewTask : AppCompatActivity() {
                 running = true;
                 num++
                 runningTask = taskName
-            } else {
-                Toast.makeText(applicationContext, "Please finish/stop $runningTask first", Toast.LENGTH_SHORT).show()
             }
+            }else {
+                Toast.makeText(applicationContext, "Please finish/stop $runningTask first", Toast.LENGTH_SHORT).show()
         }
     }//end start()
 
